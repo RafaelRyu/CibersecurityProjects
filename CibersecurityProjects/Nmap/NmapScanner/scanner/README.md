@@ -15,35 +15,42 @@ Para rodar este script, você tem duas opções:
     ```
 
 ### Opção 2: Rodar via Docker (Recomendado)
-* **Docker** instalado. Esta opção é preferível pois o Docker já traz o Nmap e todas as dependências configuradas dentro do container.
+* **Docker** instalado.  
+* O sistema requer **sudo** para executar os comandos Docker.  
+* É necessário **baixar a pasta `scanner` localmente** e executar todos os comandos Docker **dentro da pasta `scanner`**, pois é nela que estão os arquivos necessários para a construção da imagem.
 
 ## 🛠️ Como usar
 
 ### Usando Docker (Mais fácil)
 
-1.  **Construa a imagem:**
+1. **Baixe a pasta `scanner` localmente** e navegue até ela:
     ```bash
-    docker build -t nmap-scanner .
+    cd scanner
     ```
 
-2.  **Execute o container:**
+2. **Construa a imagem (com sudo):**
+    ```bash
+    sudo docker build -t nmap-scanner .
+    ```
+
+3. **Execute o container (com sudo):**
     Para scans básicos:
     ```bash
-    docker run -it --rm nmap-scanner
+    sudo docker run -it --rm nmap-scanner
     ```
     
     Para scans que exigem privilégios de root (como o SYN Scan `-sS`):
     ```bash
-    docker run -it --rm --privileged nmap-scanner
+    sudo docker run -it --rm --privileged nmap-scanner
     ```
 
 ### Usando Python Localmente
 
-1.  Execute o script principal:
+1. Execute o script principal:
     ```bash
     python main.py
     ```
-2.  Siga as instruções no terminal para inserir o IP alvo, tipo de scan e formato de saída.
+2. Siga as instruções no terminal para inserir o IP alvo, tipo de scan e formato de saída.
 
 ## 📋 Funcionalidades
 - [x] Escolha de flags do Nmap via menu.

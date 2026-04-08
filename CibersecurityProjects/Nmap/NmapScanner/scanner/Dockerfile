@@ -10,7 +10,7 @@ WORKDIR /app
 RUN pip install --no-cache-dir python-nmap
 
 # Copia o seu script para o container
-COPY scanner.py .
+COPY main.py .
 
 # Comando para rodar o script
-ENTRYPOINT ["python", "scanner.py"]
+ENTRYPOINT ["python", "main.py"]
